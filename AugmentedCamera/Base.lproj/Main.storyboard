@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,12 +32,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvO-dD-IHX">
-                                <rect key="frame" x="313" y="49" width="46" height="30"/>
+                                <rect key="frame" x="265" y="49" width="94" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="VsD-tv-ILV"/>
-                                    <constraint firstAttribute="width" constant="46" id="bYs-fe-yrT"/>
+                                    <constraint firstAttribute="width" constant="94" id="bYs-fe-yrT"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X6C-qZ-ehF"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="📸" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbF-eO-rae">
                                 <rect key="frame" x="157" y="310" width="60" height="46"/>

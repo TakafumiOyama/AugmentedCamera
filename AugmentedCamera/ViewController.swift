@@ -136,6 +136,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         
         sceneView.scene.rootNode.addChildNode(imageNode)
+        drawingNodes.append(imageNode)
         
         statusLabel.text = "Move your device!"
         
