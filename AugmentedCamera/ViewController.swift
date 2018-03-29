@@ -19,6 +19,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
+    @IBOutlet weak var lennaImg: UIImageView!
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet var statusLabel: UILabel!
     @IBOutlet var cameraIcon: UILabel!
@@ -150,6 +151,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     // MARK: - Actions
     
+    @IBAction func applyEffectButtonTapped(_ sender: Any) {
+        if let img = self.lennaImg.image {
+            let openCV = OpenCVWrapper()
+            let grayImg = openCV.toGrayscale(img)
+            self.lennaImg.image = grayImg
+        }
+    }
     @IBAction func resetBtnTapped(_ sender: UIButton) {
         reset()
     }

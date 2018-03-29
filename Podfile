@@ -6,5 +6,6 @@ target 'AugmentedCamera' do
   use_frameworks!
 
   # Pods for AugmentedCamera
+  pod ‘OpenCV’, ‘~> 3.1.0’
 
 end

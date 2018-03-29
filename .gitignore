@@ -2,7 +2,11 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+## Mac
 .DS_Store
+
+## CocoaPod
+Pods/*
 
 ## Build generated
 build/

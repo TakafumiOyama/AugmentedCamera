@@ -50,6 +50,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Lenna" translatesAutoresizingMaskIntoConstraints="NO" id="Qvn-sK-khC">
+                                <rect key="frame" x="125" y="123" width="124" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cm2-14-fY0">
+                                <rect key="frame" x="145" y="255" width="84" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Apply Effect"/>
+                                <connections>
+                                    <action selector="applyEffectButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dfr-Sk-j5d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -63,6 +75,7 @@
                     </view>
                     <connections>
                         <outlet property="cameraIcon" destination="gbF-eO-rae" id="3CH-cU-mlV"/>
+                        <outlet property="lennaImg" destination="Qvn-sK-khC" id="4WV-Uj-Akh"/>
                         <outlet property="resetBtn" destination="dvO-dD-IHX" id="Mmc-zs-Nis"/>
                         <outlet property="sceneView" destination="qCP-rH-L4P" id="aLq-Ki-cKW"/>
                         <outlet property="statusLabel" destination="CLC-oC-c5s" id="6FM-f2-OLE"/>
@@ -73,4 +86,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Lenna" width="512" height="512"/>
+    </resources>
 </document>

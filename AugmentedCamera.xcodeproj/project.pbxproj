@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4DB93591206B8B3A00888CCD /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB93590206B8B3A00888CCD /* Common.swift */; };
 		4DB93593206B8B4800888CCD /* TrackingState+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB93592206B8B4800888CCD /* TrackingState+Description.swift */; };
+		4DCA373E206C91C200643339 /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA373D206C91C200643339 /* OpenCVWrapper.mm */; };
 		4DCE7FA0206B4AAE00190CC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCE7F9F206B4AAE00190CC5 /* AppDelegate.swift */; };
 		4DCE7FA2206B4AAE00190CC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCE7FA1206B4AAE00190CC5 /* ViewController.swift */; };
 		4DCE7FA5206B4AAE00190CC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DCE7FA3206B4AAE00190CC5 /* Main.storyboard */; };
@@ -20,6 +21,9 @@
 /* Begin PBXFileReference section */
 		4DB93590206B8B3A00888CCD /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = AugmentedCamera/Common.swift; sourceTree = "<group>"; };
 		4DB93592206B8B4800888CCD /* TrackingState+Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TrackingState+Description.swift"; path = "AugmentedCamera/TrackingState+Description.swift"; sourceTree = "<group>"; };
+		4DCA373B206C91C100643339 /* AugmentedCamera-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AugmentedCamera-Bridging-Header.h"; sourceTree = "<group>"; };
+		4DCA373C206C91C200643339 /* OpenCVWrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = OpenCVWrapper.hpp; sourceTree = "<group>"; };
+		4DCA373D206C91C200643339 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
 		4DCE7F9C206B4AAE00190CC5 /* AugmentedCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AugmentedCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DCE7F9F206B4AAE00190CC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DCE7FA1206B4AAE00190CC5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +66,15 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		4DCA373F206CC6D400643339 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				4DCA373D206C91C200643339 /* OpenCVWrapper.mm */,
+				4DCA373C206C91C200643339 /* OpenCVWrapper.hpp */,
+			);
+			path = Wrappers;
+			sourceTree = "<group>";
+		};
 		4DCE7F93206B4AAE00190CC5 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +83,7 @@
 				4DCE7F9D206B4AAE00190CC5 /* Products */,
 				3257119795950ED45FF45546 /* Pods */,
 				FC99847ABFEAF6161F51C4FE /* Frameworks */,
+				4DCA373B206C91C100643339 /* AugmentedCamera-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +98,7 @@
 		4DCE7F9E206B4AAE00190CC5 /* AugmentedCamera */ = {
 			isa = PBXGroup;
 			children = (
+				4DCA373F206CC6D400643339 /* Wrappers */,
 				4DCE7F9F206B4AAE00190CC5 /* AppDelegate.swift */,
 				4DCE7FA1206B4AAE00190CC5 /* ViewController.swift */,
 				4DCE7FA3206B4AAE00190CC5 /* Main.storyboard */,
@@ -137,6 +152,7 @@
 				TargetAttributes = {
 					4DCE7F9B206B4AAE00190CC5 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -179,13 +195,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AugmentedCamera-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		79149F31E2082EF863D49DF3 /* [CP] Embed Pods Frameworks */ = {
@@ -194,9 +213,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AugmentedCamera/Pods-AugmentedCamera-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/OpenCV/opencv2.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/opencv2.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -226,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DCE7FA2206B4AAE00190CC5 /* ViewController.swift in Sources */,
+				4DCA373E206C91C200643339 /* OpenCVWrapper.mm in Sources */,
 				4DB93593206B8B4800888CCD /* TrackingState+Description.swift in Sources */,
 				4DB93591206B8B3A00888CCD /* Common.swift in Sources */,
 				4DCE7FA0206B4AAE00190CC5 /* AppDelegate.swift in Sources */,
@@ -366,6 +389,7 @@
 			baseConfigurationReference = A7BDCF5A3D4A960AF30853B2 /* Pods-AugmentedCamera.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R33D374SSL;
 				INFOPLIST_FILE = AugmentedCamera/Info.plist;
@@ -373,6 +397,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.i-studio.in-house.AugmentedCamera";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AugmentedCamera-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -383,6 +409,7 @@
 			baseConfigurationReference = 7F79A8A333B76E5D0864A82A /* Pods-AugmentedCamera.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R33D374SSL;
 				INFOPLIST_FILE = AugmentedCamera/Info.plist;
@@ -390,6 +417,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.i-studio.in-house.AugmentedCamera";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AugmentedCamera-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -1,6 +1,0 @@
-framework module Pods_AugmentedCamera {
-  umbrella header "Pods-AugmentedCamera-umbrella.h"
-
-  export *
-  module * { export * }
-}
